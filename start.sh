@@ -39,7 +39,7 @@ $HOME/.termux/fonts.sh
 echo "Installing basic tool now~"
 pkg install -y curl wget  clang tmux neovim exa \
 			less unzip unrar tar nodejs python3 \
-			ruby yarn range
+			ruby yarn range man figlet openssh
 
 # CHANGE PYTHON SOURCE
 cd;mkdir .pip;touch pip.conf
