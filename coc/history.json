@@ -1,0 +1,9 @@
+{
+  "extensions": {
+    "%2Fdata%2Fdata%2Fcom": {
+      "termux%2Ffiles%2Fhome": [
+        "tran"
+      ]
+    }
+  }
+}

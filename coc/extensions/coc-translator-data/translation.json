@@ -1,0 +1,42 @@
+[
+  {
+    "id": "927cb540-6c3e-11ea-a3b2-990a20c7871d",
+    "content": [
+      "Introduce",
+      "v. 推行；采用；实施；引见 "
+    ],
+    "path": "file:///data/data/com.termux/files/home/.config/nvim/init.vim\t340\t3"
+  },
+  {
+    "id": "167654c0-6c3d-11ea-a3b2-990a20c7871d",
+    "content": [
+      "\"Hello,Word.I",
+      " ”“你好，Word。 我是"
+    ],
+    "path": "file:///data/data/com.termux/files/home/.config/nvim/init.vim\t406\t3"
+  },
+  {
+    "id": "15188990-6c29-11ea-bdee-2b1b5d5739f3",
+    "content": [
+      "Where",
+      "pron. 哪�� "
+    ],
+    "path": "file:///data/data/com.termux/files/home/.config/coc/extensions/node_modules/coc-translator/README.md\t81\t4"
+  },
+  {
+    "id": "2d5a3680-6c28-11ea-bdee-2b1b5d5739f3",
+    "content": [
+      "Translation",
+      "n. 翻译；译文；译本；转化 "
+    ],
+    "path": "file:///data/data/com.termux/files/home/.config/nvim/init.vim\t407\t12"
+  },
+  {
+    "id": "153b2230-6c28-11ea-bdee-2b1b5d5739f3",
+    "content": [
+      "Work",
+      "n. 工作��作品；劳动；功 "
+    ],
+    "path": "file:///data/data/com.termux/files/home/.config/coc/extensions/node_modules/coc-translator/README.md\t65\t1"
+  }
+]
