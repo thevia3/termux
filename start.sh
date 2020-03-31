@@ -2,10 +2,11 @@
 #This is start-script for termux.
 termux-setup-storage
 
-sed -i 's@^\(deb.*stable main\)$@#\1\ndeb http://mirrors.tuna.tsinghua.edu.cn/termux stable main@' $PREFIX/etc/apt/sources.list
+sed -i 's@^\(deb.*stable main\)$@#\1\ndeb http://mirrors.tuna.tsinghua.edu.cn/termux stable main@'  \
+$PREFIX/etc/apt/sources.list
 
 #< -- ! -- >
-#Install zsh
+#Installing zsh
 apt update && apt upgrade -y
 apt install -y git zsh
 git clone https://github.com/Cabbagec/termux-ohmyzsh.git "$HOME/termux-ohmyzsh" --depth 1
@@ -21,17 +22,24 @@ sed -i '1iZSH_THEME="agnoster"' "$HOME/.zshrc"
 echo "alias chcolor='$HOME/.termux/colors.sh'" >> "$HOME/.zshrc"
 echo "alias chfont='$HOME/.termux/fonts.sh'" >> "$HOME/.zshrc"
 
+echo "alias ra='ranger' " >> "$HOME/.zshrc"
+echo "alias ni='neovim'"  >> ~/.zshrc
+
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh-syntax-highlighting" --depth 1
 echo "source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$HOME/.zshrc"
 chsh -s zsh
 echo "oh-my-zsh install complete!\nChoose your color scheme now~"
 $HOME/.termux/colors.sh
-
 echo "Choose your font now~"
 $HOME/.termux/fonts.sh
 
+
 #< -- ! -- >
-#Install linux
+# INstalling fish
+
+
+#< -- ! -- >
+#Installing linux
 #echo "deb [trusted=yes] https://yadominjinta.github.io/files/ termux  extras" >> $PREFIX/etc/apt/sources.list
 #pkg install -y atilo-cn
 
@@ -39,7 +47,8 @@ $HOME/.termux/fonts.sh
 echo "Installing basic tool now~"
 pkg install -y curl wget  clang tmux neovim exa \
 			less unzip unrar tar nodejs python3 \
-			ruby yarn range man figlet openssh
+			ruby yarn range man figlet openssh  \
+			fzf
 
 # CHANGE PYTHON SOURCE
 cd;mkdir .pip;touch pip.conf
@@ -61,10 +70,6 @@ pkg install -y yarn ruby
 npm install -g npm
 npm install -g neovim
 python3 -m pip install --user --upgrade pynvim
-
-# ZSH ALIAS
-echo "alias ra='ranger' " >> "$HOME/.zshrc"
-echo "alias ni='neovim'"  >> ~/.zshrc
 
 echo "Now you can:"
 figlet "Reset termux"
