@@ -5,10 +5,13 @@ termux-setup-storage
 sed -i 's@^\(deb.*stable main\)$@#\1\ndeb http://mirrors.tuna.tsinghua.edu.cn/termux stable main@'  \
 $PREFIX/etc/apt/sources.list
 
+apt update && apt upgrade -y
+pkg install -y curl wget git clang neovim exa \
+			less unzip unrar tar nodejs python3 \
+			ruby yarn range man figlet openssh  \
+			fzf zsh 
 #< -- ! -- >
 #Installing zsh
-apt update && apt upgrade -y
-apt install -y git zsh
 git clone https://github.com/Cabbagec/termux-ohmyzsh.git "$HOME/termux-ohmyzsh" --depth 1
 
 mv "$HOME/.termux" "$HOME/.termux.bak.$(date +%Y.%m.%d-%H:%M:%S)"
@@ -37,18 +40,19 @@ $HOME/.termux/fonts.sh
 #< -- ! -- >
 # INstalling fish
 
+#< -- ! -- >
+# INstalling tmux (with install awk perl sed)
+pkg instl -y tmux perl
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f.tmux/.tmux.conf && cp .tmux/.tmux.conf.load . \
+	|| echo "MISTAKE TO INSTALL TMUX"
+
 
 #< -- ! -- >
 #Installing linux
 #echo "deb [trusted=yes] https://yadominjinta.github.io/files/ termux  extras" >> $PREFIX/etc/apt/sources.list
 #pkg install -y atilo-cn
 
-#Install basic tool
-echo "Installing basic tool now~"
-pkg install -y curl wget  clang tmux neovim exa \
-			less unzip unrar tar nodejs python3 \
-			ruby yarn range man figlet openssh  \
-			fzf
 
 # CHANGE PYTHON SOURCE
 cd;mkdir .pip;touch pip.conf
@@ -70,6 +74,13 @@ pkg install -y yarn ruby
 npm install -g npm
 npm install -g neovim
 python3 -m pip install --user --upgrade pynvim
+
+
+#< -- ! -- >
+# PYTHON ABOOUT
+pip install requests
+pip install beautifulsoup
+
 
 echo "Now you can:"
 figlet "Reset termux"
