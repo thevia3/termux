@@ -14,9 +14,10 @@ def download_page(url):
 def get_content(html, page):
     output = """第{}页 作者：{} 性别：{} 年龄：{} 点赞：{} 评论：{}\n{}\n------------\n"""  # 最终输出格式
     soup = BeautifulSoup(html, 'html.parser')
-    # con = soup.find(id='content-left')  # 如图一红色方框
-    con_list = soup.find_all('div', id='content-left',
-                             class_="article")  # 找到文章列表
+    # con = soup.find(id='content-left')
+    con_list = soup.find_all('div', class_="article")
+    # con_list = soup.find(id='content-left').find_all('div', class_="article")
+    print("Get con_list is finished")
     for i in con_list:
         author = i.find('h2').string  # 获取作者名字
         content = i.find('div', class_='content').find(
@@ -48,14 +49,15 @@ def save_txt(*args):
     for i in args:
         with open('qiubai.txt', 'a', encoding='utf-8') as f:
             f.write(i)
+    print("Saving to qiubai.txt is finished")
 
 
 def main():
    # 我们点击下面链接，在页面下方可以看到共有13页，可以构造如下 url，
     # 当然我们最好是用 Beautiful Soup找到页面底部有多少页。
-    # for i in range(1, 14):
-    #     url = 'https://qiushibaike.com/text/page/{}'.format(i)
-    #     html = download_page(url)
+    for i in range(1, 5):
+        url = 'https://qiushibaike.com/text/page/{}'.format(i)
+        html = download_page(url)
     get_content(html, i)
 
 
