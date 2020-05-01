@@ -2,22 +2,25 @@
 #This is start-script for termux in android.
 #
 # ---------------------------------------------------------------------
-#							# ZSH FOR TERMUX
+#							# BASE FOR TERMUX
 # ---------------------------------------------------------------------
+
 termux-setup-storage
 sed -i 's@^\(deb.*stable main\)$@#\1\ndeb http://mirrors.tuna.tsinghua.edu.cn/termux stable main@'  \
 	$PREFIX/etc/apt/sources.list
 
 apt update && apt upgrade -y
-pkg install -y curl wget git clang neovim exa \
+pkg install -y curl wget git clang neovim exa make \
 			less unzip unrar tar nodejs python3 \
-			ruby yarn range man figlet openssh  \
-			fzf zsh 
+			ruby yarn range man openssh  \
+			fzf zsh \
+			figlet cowsay
 
 
 # ---------------------------------------------------------------------
 #							# ZSH FOR TERMUX
 # ---------------------------------------------------------------------
+
 git clone https://github.com/Cabbagec/termux-ohmyzsh.git \
 	"$HOME/termux-ohmyzsh" --depth 1
 
@@ -49,12 +52,14 @@ $HOME/.termux/fonts.sh
 # ---------------------------------------------------------------------
 #							# FISH-SHELL FOR TERMUX
 # ---------------------------------------------------------------------
+
 # INstalling fish
 
 
 # ---------------------------------------------------------------------
 #							# TMUX FOR TERMUX
 # ---------------------------------------------------------------------
+
 #Install tmux with have awk perl sed
 pkg instl -y tmux perl			
 git clone https://github.com/gpakosz/.tmux.git
@@ -65,6 +70,7 @@ ln -s -f.tmux/.tmux.conf && cp .tmux/.tmux.conf.load . \
 # ---------------------------------------------------------------------
 #							# LINUX FOR TERMUX IN ANDROID
 # ---------------------------------------------------------------------
+
 #Installing linux
 #echo "deb [trusted=yes] https://yadominjinta.github.io/files/ termux  extras" >> $PREFIX/etc/apt/sources.list
 #pkg install -y atilo-cn
@@ -73,6 +79,7 @@ ln -s -f.tmux/.tmux.conf && cp .tmux/.tmux.conf.load . \
 # ---------------------------------------------------------------------
 #							# NEOVIM CONFIG
 # ---------------------------------------------------------------------
+
 git clone https://github.com/thevia3/thenvim.git
 mv thenvim ~/.config/nvim
 # Plugin Install
@@ -88,6 +95,7 @@ python3 -m pip install --user --upgrade pynvim
 # ---------------------------------------------------------------------
 #							#PYTHON ABOOUT
 # ---------------------------------------------------------------------
+
 # CHANGE PYTHON SOURCE
 cd;mkdir .pip;touch pip.conf
 echo "[global]" >> ~/.pip/pip.conf
@@ -103,6 +111,7 @@ pip install beautifulsoup
 # ---------------------------------------------------------------------
 #							#RANGER ABOUT
 # ---------------------------------------------------------------------
+
 git clone https://github.com/laggardkernel/ranger-fzf-marks.git \
 	~/.config/ranger/plugins/fzf-marks
 
